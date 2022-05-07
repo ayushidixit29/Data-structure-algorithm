@@ -1,31 +1,24 @@
-#include<bits/stdc++.h>
-using namespace std; 
-bool isprime(int n){
-	if (n==2 || n==3){
-		return 1;
-	}
-	else{
-		for(int i=2;i<=sqrt(n);i++){
-		if(n%i==0){
-			return 0;
-		}
-		else{
-			return 1;
-		}
-	}
-	}
-}
-int main(){
-	int s,c=0,l;
-	cin>>s;
-	if(s<=2){
-		//for value less than or equal to two is zero
-	}
-	for(int i=2;i<=s;i++){
-		l=isprime(i);
-		if(l==1){
-			c++;
-		}
-	}
-	cout<<c;
-}
+class Solution {
+public:
+    int countPrimes(int n) {
+        if (n <= 2) {
+            return 0;
+        }
+
+        vector<int> is_prime(n / 2, true);
+        auto cnt = is_prime.size();
+        for (int i = 3; i * i < n; i += 2) {
+            if (!is_prime[i / 2]) {
+                continue;
+            }
+            for (int j = i * i; j < n; j += 2 * i) {
+                if (!is_prime[j / 2]) {
+                    continue;
+                }
+                --cnt;
+                is_prime[j / 2] = false;
+            }
+        }
+        return cnt;
+    }
+};
