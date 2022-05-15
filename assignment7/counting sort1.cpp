@@ -2,12 +2,12 @@
 
 using namespace std;
 
-vector<int>arr;
+vector<int>arr(100,0);
 int main()
 {
     int n;
     cin>>n;
-    arr.resize(100,0);
+    
     for(int i=0;i!=n;i++)
     {
         int m;
