@@ -18,19 +18,29 @@ int main() {
         i--;
         j--;
     }
-    if(carry>0){
-        sum=sum+k[c];
-    }
 
     while(i>j){
-        c=a[i]-'0';
+        c=a[i]-'0'+carry;
+        sum1=c;
+        if(c>9){
+            c=sum1%10;
+            carry=sum1/10;
+        }
         sum=sum+k[c];
         i--;
     }
     while(j>i){
-        c=b[j]-'0';
+        c=b[j]-'0'+carry;
+        sum1=c;
+        if(c>9){
+            c=sum1%10;
+            carry=sum1/10;
+        }
         sum=sum+k[c];
         j--;
+    }
+    if(carry>0){
+        sum=sum+k[carry];
     }
 
    
