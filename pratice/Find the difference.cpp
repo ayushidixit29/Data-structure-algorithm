@@ -9,4 +9,4 @@ public:
       }
       return t[s.size()];        
     }
-};
+}
