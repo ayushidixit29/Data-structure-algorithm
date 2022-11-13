@@ -12,4 +12,4 @@ public:
         int x=7;
         cout << mySqrt(x) << '\n';
     }
-};
+}
