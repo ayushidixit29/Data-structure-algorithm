@@ -30,7 +30,7 @@ public:
     int minimum() {
         return *S.begin();
     }
-}
+};
 
 /**
  * Your StockPrice object will be instantiated and called as such:
